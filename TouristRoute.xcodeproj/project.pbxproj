@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09E45A99558C5919CBF5E10F /* Pods_TouristRoute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A565F80AD5F05BD8858F528 /* Pods_TouristRoute.framework */; };
+		2F041C682B8695FD00FE13F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C672B8695FD00FE13F4 /* ContentView.swift */; };
+		2F041C6A2B86984500FE13F4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C692B86984500FE13F4 /* Place.swift */; };
+		2F041C6C2B869DB700FE13F4 /* AnnotationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C6B2B869DB700FE13F4 /* AnnotationDetailView.swift */; };
+		2F041C6E2B86A30400FE13F4 /* IdentifiableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C6D2B86A30400FE13F4 /* IdentifiableAnnotation.swift */; };
+		2F041C702B86A96500FE13F4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C6F2B86A96500FE13F4 /* ImageLoader.swift */; };
+		2F041C722B86AE0300FE13F4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C712B86AE0300FE13F4 /* Photo.swift */; };
+		2F041C8F2B87A34400FE13F4 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 2F041C8E2B87A34400FE13F4 /* OpenAI */; };
+		2F041C912B87A45900FE13F4 /* OpenAIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C902B87A45900FE13F4 /* OpenAIController.swift */; };
+		2F041C932B87D57A00FE13F4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F041C922B87D57A00FE13F4 /* String.swift */; };
+		2F08BA522A18C409008D4596 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08BA512A18C409008D4596 /* Color.swift */; };
+		2F40A9AF2A239A6C006E8CC4 /* MapLocal_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40A9AE2A239A6C006E8CC4 /* MapLocal_ViewModel.swift */; };
+		2F62996429200E25002B787B /* CurrencyExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F62996329200E25002B787B /* CurrencyExchangeApp.swift */; };
+		2F62996829200E27002B787B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F62996729200E27002B787B /* Assets.xcassets */; };
+		2F62996B29200E27002B787B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F62996A29200E27002B787B /* Preview Assets.xcassets */; };
+		2F69C12729EAAFD600958F46 /* MapLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F69C12629EAAFD500958F46 /* MapLocal.swift */; };
+		2F88A0DB2920F60B0044E913 /* ExchangeHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F88A0D92920F60B0044E913 /* ExchangeHistory.xcdatamodeld */; };
+		2FAD2F5E2A0FF02E002E648B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F5D2A0FF02E002E648B /* LocationService.swift */; };
+		2FAD2F632A0FF081002E648B /* PlaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F622A0FF081002E648B /* PlaceResult.swift */; };
+		2FAD2F652A0FF091002E648B /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F642A0FF091002E648B /* Geometry.swift */; };
+		2FAD2F672A0FF09D002E648B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F662A0FF09D002E648B /* Location.swift */; };
+		2FAD2F692A0FF0B0002E648B /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F682A0FF0B0002E648B /* APIResponse.swift */; };
+		2FAD2F6B2A0FF16D002E648B /* Viewport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F6A2A0FF16D002E648B /* Viewport.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0053ABFD0EA04971BCE6970E /* Pods-TouristRoute.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristRoute.debug.xcconfig"; path = "Target Support Files/Pods-TouristRoute/Pods-TouristRoute.debug.xcconfig"; sourceTree = "<group>"; };
+		09AF1A0AA397EB62CCD66E6A /* Pods-TouristRoute.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristRoute.release.xcconfig"; path = "Target Support Files/Pods-TouristRoute/Pods-TouristRoute.release.xcconfig"; sourceTree = "<group>"; };
+		1A565F80AD5F05BD8858F528 /* Pods_TouristRoute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouristRoute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F041C672B8695FD00FE13F4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F041C692B86984500FE13F4 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		2F041C6B2B869DB700FE13F4 /* AnnotationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDetailView.swift; sourceTree = "<group>"; };
+		2F041C6D2B86A30400FE13F4 /* IdentifiableAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableAnnotation.swift; sourceTree = "<group>"; };
+		2F041C6F2B86A96500FE13F4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		2F041C712B86AE0300FE13F4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		2F041C902B87A45900FE13F4 /* OpenAIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIController.swift; sourceTree = "<group>"; };
+		2F041C922B87D57A00FE13F4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2F08BA512A18C409008D4596 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2F40A9AE2A239A6C006E8CC4 /* MapLocal_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocal_ViewModel.swift; sourceTree = "<group>"; };
+		2F62996029200E25002B787B /* TouristRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouristRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F62996329200E25002B787B /* CurrencyExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeApp.swift; sourceTree = "<group>"; };
+		2F62996729200E27002B787B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F62996A29200E27002B787B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2F69C12629EAAFD500958F46 /* MapLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocal.swift; sourceTree = "<group>"; };
+		2F88A0DA2920F60B0044E913 /* ExchangeHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExchangeHistory.xcdatamodel; sourceTree = "<group>"; };
+		2FAD2F5D2A0FF02E002E648B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2FAD2F622A0FF081002E648B /* PlaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceResult.swift; sourceTree = "<group>"; };
+		2FAD2F642A0FF091002E648B /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		2FAD2F662A0FF09D002E648B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2FAD2F682A0FF0B0002E648B /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		2FAD2F6A2A0FF16D002E648B /* Viewport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewport.swift; sourceTree = "<group>"; };
+		DEB4D5FDC6A64278E862BA26 /* Pods-CurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
+		F5CFE06EE590FBA2F35E099D /* Pods-CurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F62995D29200E24002B787B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F041C8F2B87A34400FE13F4 /* OpenAI in Frameworks */,
+				09E45A99558C5919CBF5E10F /* Pods_TouristRoute.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F30949029434C4C006AC618 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2F08BA512A18C409008D4596 /* Color.swift */,
+				2F041C922B87D57A00FE13F4 /* String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2F62995729200E24002B787B = {
+			isa = PBXGroup;
+			children = (
+				2F62996229200E25002B787B /* TouristRoute */,
+				2F62996129200E25002B787B /* Products */,
+				6C25242E9765C515C863B194 /* Pods */,
+				6A88975F877E640AFC591E4E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2F62996129200E25002B787B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F62996029200E25002B787B /* TouristRoute.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F62996229200E25002B787B /* TouristRoute */ = {
+			isa = PBXGroup;
+			children = (
+				2F62996329200E25002B787B /* CurrencyExchangeApp.swift */,
+				2F30949029434C4C006AC618 /* Extension */,
+				2FAD2F5C2A0FF00E002E648B /* Services */,
+				2F6459C32941D9D300637C94 /* Models */,
+				2F6459C52941D9F000637C94 /* ViewModels */,
+				2F6459C42941D9E500637C94 /* Views */,
+				2F88A0D92920F60B0044E913 /* ExchangeHistory.xcdatamodeld */,
+				2F62996729200E27002B787B /* Assets.xcassets */,
+				2F62996929200E27002B787B /* Preview Content */,
+			);
+			path = TouristRoute;
+			sourceTree = "<group>";
+		};
+		2F62996929200E27002B787B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2F62996A29200E27002B787B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2F6459C32941D9D300637C94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2FAD2F612A0FF06F002E648B /* Location */,
+				2F041C6D2B86A30400FE13F4 /* IdentifiableAnnotation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2F6459C42941D9E500637C94 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F041C672B8695FD00FE13F4 /* ContentView.swift */,
+				2F69C12629EAAFD500958F46 /* MapLocal.swift */,
+				2F041C6B2B869DB700FE13F4 /* AnnotationDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2F6459C52941D9F000637C94 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2F40A9AE2A239A6C006E8CC4 /* MapLocal_ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2FAD2F5C2A0FF00E002E648B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2FAD2F5D2A0FF02E002E648B /* LocationService.swift */,
+				2F041C6F2B86A96500FE13F4 /* ImageLoader.swift */,
+				2F041C902B87A45900FE13F4 /* OpenAIController.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2FAD2F612A0FF06F002E648B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				2FAD2F682A0FF0B0002E648B /* APIResponse.swift */,
+				2FAD2F622A0FF081002E648B /* PlaceResult.swift */,
+				2FAD2F642A0FF091002E648B /* Geometry.swift */,
+				2FAD2F6A2A0FF16D002E648B /* Viewport.swift */,
+				2FAD2F662A0FF09D002E648B /* Location.swift */,
+				2F041C692B86984500FE13F4 /* Place.swift */,
+				2F041C712B86AE0300FE13F4 /* Photo.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		6A88975F877E640AFC591E4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A565F80AD5F05BD8858F528 /* Pods_TouristRoute.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C25242E9765C515C863B194 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5CFE06EE590FBA2F35E099D /* Pods-CurrencyExchange.debug.xcconfig */,
+				DEB4D5FDC6A64278E862BA26 /* Pods-CurrencyExchange.release.xcconfig */,
+				0053ABFD0EA04971BCE6970E /* Pods-TouristRoute.debug.xcconfig */,
+				09AF1A0AA397EB62CCD66E6A /* Pods-TouristRoute.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F62995F29200E24002B787B /* TouristRoute */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F62996E29200E27002B787B /* Build configuration list for PBXNativeTarget "TouristRoute" */;
+			buildPhases = (
+				9DCC66DB67E630398542F7F1 /* [CP] Check Pods Manifest.lock */,
+				2F62995C29200E24002B787B /* Sources */,
+				2F62995D29200E24002B787B /* Frameworks */,
+				2F62995E29200E24002B787B /* Resources */,
+				81B03B9A336F384821939B6F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouristRoute;
+			packageProductDependencies = (
+				2F041C8E2B87A34400FE13F4 /* OpenAI */,
+			);
+			productName = CurrencyExchange;
+			productReference = 2F62996029200E25002B787B /* TouristRoute.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F62995829200E24002B787B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					2F62995F29200E24002B787B = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 2F62995B29200E24002B787B /* Build configuration list for PBXProject "TouristRoute" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F62995729200E24002B787B;
+			packageReferences = (
+				2F041C8D2B87A34400FE13F4 /* XCRemoteSwiftPackageReference "OpenAI.git" */,
+			);
+			productRefGroup = 2F62996129200E25002B787B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F62995F29200E24002B787B /* TouristRoute */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F62995E29200E24002B787B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F62996B29200E27002B787B /* Preview Assets.xcassets in Resources */,
+				2F62996829200E27002B787B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81B03B9A336F384821939B6F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TouristRoute/Pods-TouristRoute-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TouristRoute/Pods-TouristRoute-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TouristRoute/Pods-TouristRoute-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DCC66DB67E630398542F7F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TouristRoute-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F62995C29200E24002B787B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F041C932B87D57A00FE13F4 /* String.swift in Sources */,
+				2F69C12729EAAFD600958F46 /* MapLocal.swift in Sources */,
+				2F08BA522A18C409008D4596 /* Color.swift in Sources */,
+				2F041C682B8695FD00FE13F4 /* ContentView.swift in Sources */,
+				2F041C912B87A45900FE13F4 /* OpenAIController.swift in Sources */,
+				2F041C6C2B869DB700FE13F4 /* AnnotationDetailView.swift in Sources */,
+				2FAD2F692A0FF0B0002E648B /* APIResponse.swift in Sources */,
+				2FAD2F652A0FF091002E648B /* Geometry.swift in Sources */,
+				2F041C702B86A96500FE13F4 /* ImageLoader.swift in Sources */,
+				2F62996429200E25002B787B /* CurrencyExchangeApp.swift in Sources */,
+				2FAD2F672A0FF09D002E648B /* Location.swift in Sources */,
+				2F041C6E2B86A30400FE13F4 /* IdentifiableAnnotation.swift in Sources */,
+				2F041C722B86AE0300FE13F4 /* Photo.swift in Sources */,
+				2F40A9AF2A239A6C006E8CC4 /* MapLocal_ViewModel.swift in Sources */,
+				2FAD2F6B2A0FF16D002E648B /* Viewport.swift in Sources */,
+				2F041C6A2B86984500FE13F4 /* Place.swift in Sources */,
+				2F88A0DB2920F60B0044E913 /* ExchangeHistory.xcdatamodeld in Sources */,
+				2FAD2F632A0FF081002E648B /* PlaceResult.swift in Sources */,
+				2FAD2F5E2A0FF02E002E648B /* LocationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2F62996C29200E27002B787B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2F62996D29200E27002B787B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F62996F29200E27002B787B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0053ABFD0EA04971BCE6970E /* Pods-TouristRoute.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TouristRoute/Preview Content\"";
+				DEVELOPMENT_TEAM = 4U6Z2B3M8H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show you the nearest banks";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Artem.TouristRoute;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F62997029200E27002B787B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09AF1A0AA397EB62CCD66E6A /* Pods-TouristRoute.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TouristRoute/Preview Content\"";
+				DEVELOPMENT_TEAM = 4U6Z2B3M8H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show you the nearest banks";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Artem.TouristRoute;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F62995B29200E24002B787B /* Build configuration list for PBXProject "TouristRoute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F62996C29200E27002B787B /* Debug */,
+				2F62996D29200E27002B787B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F62996E29200E27002B787B /* Build configuration list for PBXNativeTarget "TouristRoute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F62996F29200E27002B787B /* Debug */,
+				2F62997029200E27002B787B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2F041C8D2B87A34400FE13F4 /* XCRemoteSwiftPackageReference "OpenAI.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2F041C8E2B87A34400FE13F4 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F041C8D2B87A34400FE13F4 /* XCRemoteSwiftPackageReference "OpenAI.git" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		2F88A0D92920F60B0044E913 /* ExchangeHistory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F88A0DA2920F60B0044E913 /* ExchangeHistory.xcdatamodel */,
+			);
+			currentVersion = 2F88A0DA2920F60B0044E913 /* ExchangeHistory.xcdatamodel */;
+			path = ExchangeHistory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2F62995829200E24002B787B /* Project object */;
+}

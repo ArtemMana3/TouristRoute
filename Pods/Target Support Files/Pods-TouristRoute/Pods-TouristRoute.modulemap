@@ -1,0 +1,6 @@
+framework module Pods_TouristRoute {
+  umbrella header "Pods-TouristRoute-umbrella.h"
+
+  export *
+  module * { export * }
+}

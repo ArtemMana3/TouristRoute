@@ -1,0 +1,120 @@
+2023-05-13 16:32:13 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7f9173c192a0; archive(resolved)="<IDEArchive: 0x60001490a0a0>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (14, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7f9173c192a0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x7f9173c19030; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f9173cfd5e0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f91891c9e70; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f918e7ad6a0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f918e7ad4a0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f919d9b0fa0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f919d9957f0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f9174a07c90; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000031ea780; teamID='4U6Z2B3M8H', teamName='Fifty Pixels Ltd', teamType='Company', username='artem.manakov29@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f918b91a4e0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="(null)">
+	<IDEDistributionContext: 0x7f9189188e30; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="(null)">
+	<IDEDistributionContext: 0x7f918cd9df80; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="(null)">
+	<IDEDistributionContext: 0x7f9173c18b20; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000af19fa0>", team="(null)">
+	<IDEDistributionContext: 0x7f918f6c3af0; archive = "<IDEArchive: 0x60001490a0a0>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7f9173c192a0>
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCreateDestRootStep
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCopyItemStep
+2023-05-13 16:32:13 +0000  Running /usr/bin/ditto '-V' '/Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app' '/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root/Payload/CurrencyExchange.app'
+2023-05-13 16:32:13 +0000  >>> Copying /Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app 
+2023-05-13 16:32:13 +0000  copying file ./_CodeSignature/CodeResources ... 
+2023-05-13 16:32:13 +0000  2639 bytes for ./_CodeSignature/CodeResources
+2023-05-13 16:32:13 +0000  copying file ./ExchangeHistory.momd/VersionInfo.plist ... 
+2023-05-13 16:32:13 +0000  158 bytes for ./ExchangeHistory.momd/VersionInfo.plist
+copying file ./ExchangeHistory.momd/ExchangeHistory.mom ... 
+2023-05-13 16:32:13 +0000  1782 bytes for ./ExchangeHistory.momd/ExchangeHistory.mom
+2023-05-13 16:32:13 +0000  copying file ./CurrencyExchange ... 
+2023-05-13 16:32:13 +0000  291776 bytes for ./CurrencyExchange
+copying file ./embedded.mobileprovision ... 
+2023-05-13 16:32:13 +0000  37215 bytes for ./embedded.mobileprovision
+2023-05-13 16:32:13 +0000  copying file ./Info.plist ... 
+2023-05-13 16:32:13 +0000  1334 bytes for ./Info.plist
+2023-05-13 16:32:13 +0000  copying file ./PkgInfo ... 
+2023-05-13 16:32:13 +0000  8 bytes for ./PkgInfo
+2023-05-13 16:32:13 +0000  /usr/bin/ditto exited with 0
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionEmbedProfileStep
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionInfoPlistStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionSymbolsStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionAppThinningStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionArchThinningStep
+2023-05-13 16:32:13 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root/Payload/CurrencyExchange.app/CurrencyExchange' '-verify_arch' 'arm64e'
+2023-05-13 16:32:13 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-05-13 16:32:13 +0000  Skipping architecture thinning for item "CurrencyExchange" because arch "arm64e" wasn't found
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionODRStep
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionStripXattrsStep
+2023-05-13 16:32:13 +0000  Running /usr/bin/xattr '-crs' '/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root/Payload/CurrencyExchange.app'
+2023-05-13 16:32:13 +0000  /usr/bin/xattr exited with 0
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCodesignStep
+2023-05-13 16:32:13 +0000  Entitlements for <IDEDistributionItem: 0x60001495eca0; bundleID='Artem.CurrencyExchange', path='<DVTFilePath:0x6000104ee370:'/Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600028b78280; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005821290; name='Apple Development: Artem Manakov (ZF53MRSDP7)', hash='DDC02E532792794C8E42CF11F8D7270201EB40F9', serialNumber='303ADABEA680D7CD0DBC7D0BA45AAC54', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-02-27 08:24:50 +0000''>', entitlements='{
+    "application-identifier" = "4U6Z2B3M8H.Artem.CurrencyExchange";
+    "com.apple.developer.team-identifier" = 4U6Z2B3M8H;
+    "get-task-allow" = 1;
+}', teamID='4U6Z2B3M8H', identifier='Artem.CurrencyExchange', executablePath='<DVTFilePath:0x600010570850:'/Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app/CurrencyExchange'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "4U6Z2B3M8H.Artem.CurrencyExchange";
+    "com.apple.developer.team-identifier" = 4U6Z2B3M8H;
+    "get-task-allow" = 1;
+}
+2023-05-13 16:32:13 +0000  Entitlements for <IDEDistributionItem: 0x60001495eca0; bundleID='Artem.CurrencyExchange', path='<DVTFilePath:0x6000104ee370:'/Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600028b78280; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000058216b0; name='Apple Development: Artem Manakov (ZF53MRSDP7)', hash='DDC02E532792794C8E42CF11F8D7270201EB40F9', serialNumber='303ADABEA680D7CD0DBC7D0BA45AAC54', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-02-27 08:24:50 +0000''>', entitlements='{
+    "application-identifier" = "4U6Z2B3M8H.Artem.CurrencyExchange";
+    "com.apple.developer.team-identifier" = 4U6Z2B3M8H;
+    "get-task-allow" = 1;
+}', teamID='4U6Z2B3M8H', identifier='Artem.CurrencyExchange', executablePath='<DVTFilePath:0x600010570850:'/Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app/CurrencyExchange'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "4U6Z2B3M8H.Artem.CurrencyExchange";
+    "com.apple.developer.team-identifier" = 4U6Z2B3M8H;
+    "get-task-allow" = 1;
+}
+2023-05-13 16:32:13 +0000  Writing entitlements for <IDEDistributionItem: 0x60001495eca0; bundleID='Artem.CurrencyExchange', path='<DVTFilePath:0x6000104ee370:'/Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600028b78280; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000018123c0; name='Apple Development: Artem Manakov (ZF53MRSDP7)', hash='DDC02E532792794C8E42CF11F8D7270201EB40F9', serialNumber='303ADABEA680D7CD0DBC7D0BA45AAC54', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-02-27 08:24:50 +0000''>', entitlements='{
+    "application-identifier" = "4U6Z2B3M8H.Artem.CurrencyExchange";
+    "com.apple.developer.team-identifier" = 4U6Z2B3M8H;
+    "get-task-allow" = 1;
+}', teamID='4U6Z2B3M8H', identifier='Artem.CurrencyExchange', executablePath='<DVTFilePath:0x600010570850:'/Users/artemmanakov/Library/Developer/Xcode/Archives/2023-05-13/CurrencyExchange 13.05.2023, 19.31.xcarchive/Products/Applications/CurrencyExchange.app/CurrencyExchange'>', hardenedRuntime='0'>'> to: /var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/entitlements~~~LjxpQ2
+2023-05-13 16:32:13 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DDC02E532792794C8E42CF11F8D7270201EB40F9' '--entitlements' '/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/entitlements~~~LjxpQ2' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root/Payload/CurrencyExchange.app'
+2023-05-13 16:32:13 +0000  /var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root/Payload/CurrencyExchange.app: replacing existing signature
+2023-05-13 16:32:13 +0000  /var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root/Payload/CurrencyExchange.app: signed app bundle with Mach-O thin (arm64) [Artem.CurrencyExchange]
+2023-05-13 16:32:13 +0000  /usr/bin/codesign exited with 0
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionZipODRItemStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCreateIPAStep
+2023-05-13 16:32:13 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root' '/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Packages/CurrencyExchange.ipa'
+2023-05-13 16:32:13 +0000  >>> Copying /var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root 
+2023-05-13 16:32:13 +0000  copying file ./Payload/CurrencyExchange.app/_CodeSignature/CodeResources ... 
+2023-05-13 16:32:13 +0000  2639 bytes for ./Payload/CurrencyExchange.app/_CodeSignature/CodeResources
+2023-05-13 16:32:13 +0000  copying file ./Payload/CurrencyExchange.app/ExchangeHistory.momd/VersionInfo.plist ... 
+2023-05-13 16:32:13 +0000  158 bytes for ./Payload/CurrencyExchange.app/ExchangeHistory.momd/VersionInfo.plist
+copying file ./Payload/CurrencyExchange.app/ExchangeHistory.momd/ExchangeHistory.mom ... 
+2023-05-13 16:32:13 +0000  1782 bytes for ./Payload/CurrencyExchange.app/ExchangeHistory.momd/ExchangeHistory.mom
+2023-05-13 16:32:13 +0000  copying file ./Payload/CurrencyExchange.app/CurrencyExchange ... 
+2023-05-13 16:32:13 +0000  291776 bytes for ./Payload/CurrencyExchange.app/CurrencyExchange
+copying file ./Payload/CurrencyExchange.app/embedded.mobileprovision ... 
+2023-05-13 16:32:13 +0000  37215 bytes for ./Payload/CurrencyExchange.app/embedded.mobileprovision
+copying file ./Payload/CurrencyExchange.app/Info.plist ... 
+2023-05-13 16:32:13 +0000  1334 bytes for ./Payload/CurrencyExchange.app/Info.plist
+2023-05-13 16:32:13 +0000  copying file ./Payload/CurrencyExchange.app/PkgInfo ... 
+8 bytes for ./Payload/CurrencyExchange.app/PkgInfo
+2023-05-13 16:32:13 +0000  /usr/bin/ditto exited with 0
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2023-05-13 16:32:13 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2023-05-13 16:32:13 +0000  IDEDistributionItem init <DVTFilePath:0x6000104d7e20:'/var/folders/5d/_tg88dwj3sbc1rhwdrchfwqm0000gn/T/XcodeDistPipeline.~~~E9pvNQ/Root/Payload/CurrencyExchange.app'>
+2023-05-13 16:32:13 +0000  Processing step: IDEDistributionCreateManifestStep
