@@ -20,7 +20,8 @@ struct MapLocal: View {
                     route: $vm.route,
                     isAnnotationDetailPresented: $vm.isAnnotationDetailPresented,
                     routesBetweenPlennedLocations: $vm.routesBetweenPlennedLocations,
-                    isCreateRouteViewPresented: $vm.isCreateRouteViewPresented
+                    isCreateRouteViewPresented: $vm.isCreateRouteViewPresented,
+                    showSegmentedControl: $vm.showSegmentedControl
                 )
             } else {
                 ProgressView()
@@ -52,6 +53,7 @@ struct MapLocal: View {
                 createRoutes: {
                     vm.isCreateRouteViewPresented = false
                     vm.createRoutes()
+                    vm.showSegmentedControl = true
                 }
             
             )
@@ -68,7 +70,8 @@ struct MapView: UIViewRepresentable {
     @Binding var isAnnotationDetailPresented: Bool
     @Binding var routesBetweenPlennedLocations: [MKRoute?]
     @Binding var isCreateRouteViewPresented: Bool
-    
+    @Binding var showSegmentedControl: Bool
+
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
@@ -92,7 +95,7 @@ struct MapView: UIViewRepresentable {
         let button = MKUserTrackingButton(mapView: mapView)
         mapView.addSubview(button)
         
-        // Configure the "Create route" button with Auto Layout
+        // Implement createRouteButton
         let createRouteButton = UIButton(type: .system)
         createRouteButton.translatesAutoresizingMaskIntoConstraints = false
         createRouteButton.backgroundColor = .systemBlue
@@ -110,7 +113,7 @@ struct MapView: UIViewRepresentable {
 
         createRouteButton.addTarget(context.coordinator, action: #selector(Coordinator.createRouteTapped), for: .touchUpInside)
         
-        // Configure the "Create route" button with Auto Layout
+        // Implement cleanRouteButton
         let cleanRouteButton = UIButton(type: .system)
         cleanRouteButton.translatesAutoresizingMaskIntoConstraints = false
         cleanRouteButton.backgroundColor = .systemBlue
@@ -128,11 +131,32 @@ struct MapView: UIViewRepresentable {
 
         cleanRouteButton.addTarget(context.coordinator, action: #selector(Coordinator.cleanRouteTapped), for: .touchUpInside)
 
+        // UISegmentedControl setup
+         let segmentedControl = UISegmentedControl(items: ["Option 1", "Option 2"])
+         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+         segmentedControl.isHidden = true // Initially hidden
+         mapView.addSubview(segmentedControl)
+         
+         // UISegmentedControl Auto Layout
+         NSLayoutConstraint.activate([
+             segmentedControl.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -60),
+             segmentedControl.centerXAnchor.constraint(equalTo: mapView.centerXAnchor),
+             segmentedControl.widthAnchor.constraint(equalToConstant: 200),
+             segmentedControl.heightAnchor.constraint(equalToConstant: 30)
+         ])
+         
+         // Storing references in the Coordinator
+         context.coordinator.createRouteButton = createRouteButton
+         context.coordinator.segmentedControl = segmentedControl
+        
         return mapView
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         uiView.removeOverlays(uiView.overlays)
+        
+        context.coordinator.createRouteButton?.isHidden = showSegmentedControl
+        context.coordinator.segmentedControl?.isHidden = !showSegmentedControl
         
         for route in routesBetweenPlennedLocations {
             if let route = route {
@@ -158,6 +182,9 @@ struct MapView: UIViewRepresentable {
         
         var parent: MapView
         var lastRoute: [MKRoute?]? // Track the last route used for setting the visible region
+        
+        var createRouteButton: UIButton?
+        var segmentedControl: UISegmentedControl?
         
         init(_ parent: MapView) {
             self.parent = parent
@@ -193,8 +220,12 @@ struct MapView: UIViewRepresentable {
         
         @objc func cleanRouteTapped() {
             self.parent.routesBetweenPlennedLocations = []
+            self.parent.showSegmentedControl = false
         }
         
+        @objc func toggleView() {
+
+        }
     }
 }
 

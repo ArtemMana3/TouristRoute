@@ -24,6 +24,8 @@ class MapLocalViewModel: ObservableObject {
     @Published var routesBetweenPlennedLocations: [MKRoute?] = []
     @Published var plannedLocations: [[Location]] = [[]]
     
+    @Published var showSegmentedControl = false
+
     var selectedPlaceForRoute: String? {
         didSet {
             let startCondinate = self.initialLocation.coordinate
