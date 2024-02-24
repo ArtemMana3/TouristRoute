@@ -110,6 +110,7 @@ class MapLocalViewModel: ObservableObject {
              if (routesBetweenPlennedLocationsInnerArray.count == totalCount || isOnlyOneAttraction){
                  DispatchQueue.main.async {
                      self.routesBetweenPlennedLocations = self.routesBetweenPlennedLocationsInnerArray
+                     self.routesBetweenPlennedLocationsInnerArray = []
                  }
              }
              

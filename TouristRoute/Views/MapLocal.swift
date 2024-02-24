@@ -109,6 +109,24 @@ struct MapView: UIViewRepresentable {
         ])
 
         createRouteButton.addTarget(context.coordinator, action: #selector(Coordinator.createRouteTapped), for: .touchUpInside)
+        
+        // Configure the "Create route" button with Auto Layout
+        let cleanRouteButton = UIButton(type: .system)
+        cleanRouteButton.translatesAutoresizingMaskIntoConstraints = false
+        cleanRouteButton.backgroundColor = .systemBlue
+        cleanRouteButton.setTitle("Clean", for: .normal)
+        cleanRouteButton.setTitleColor(.white, for: .normal)
+        cleanRouteButton.layer.cornerRadius = 8
+        mapView.addSubview(cleanRouteButton)
+
+        NSLayoutConstraint.activate([
+            cleanRouteButton.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 20),
+            cleanRouteButton.rightAnchor.constraint(equalTo: mapView.rightAnchor, constant: -20),
+            cleanRouteButton.widthAnchor.constraint(equalToConstant: 50),
+            cleanRouteButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        cleanRouteButton.addTarget(context.coordinator, action: #selector(Coordinator.cleanRouteTapped), for: .touchUpInside)
 
         return mapView
     }
@@ -171,6 +189,10 @@ struct MapView: UIViewRepresentable {
         
         @objc func createRouteTapped() {
             self.parent.isCreateRouteViewPresented = true
+        }
+        
+        @objc func cleanRouteTapped() {
+            self.parent.routesBetweenPlennedLocations = []
         }
         
     }
