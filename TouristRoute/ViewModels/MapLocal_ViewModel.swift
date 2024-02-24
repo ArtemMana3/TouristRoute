@@ -16,16 +16,28 @@ class MapLocalViewModel: ObservableObject {
     @Published var route: MKRoute? // The current route
     @Published var isAnnotationDetailPresented: Bool = false
     
+    var routesBetweenPlennedLocationsInnerArray: [MKRoute?] = []
+    @Published var routesBetweenPlennedLocations: [MKRoute?] = []
+    @Published var plannedLocations: [[Location]] = [[]]
+    
     var selectedPlaceForRoute: String? {
         didSet {
+            var startCondinate = self.initialLocation.coordinate
             if let title = selectedPlaceForRoute,
                let place = places.first(where: { $0.name == title }) {
-                calculateRoute(to: CLLocationCoordinate2D(latitude: place.location.lat, longitude: place.location.lng))
+                
+                for locations in plannedLocations {
+                    for location in locations {
+                        calculateRoute(from: startCondinate, to: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng))
+                        startCondinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng)
+                    }
+                }
+                
             }
         }
     }
     
-    func fetchBankLocations(latitude: Double, longitude: Double) {
+    func fetchAttractionsLocations(latitude: Double, longitude: Double) {
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=9000&type=tourist_attraction&keyword=top&key=AIzaSyBioLkNiNlJPNetFNFA1Js1Xp2RIRgpy5k"
         guard let url = URL(string: urlString) else { return }
         
@@ -45,6 +57,11 @@ class MapLocalViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.places = places
+                    let locations: [Location] = places.map { $0.location }
+                    let planner = RoutePlanner(locations: locations, startingPoint: Location(lat: latitude, lng: longitude))
+                    let plannedLocations = planner.planRoute(for: 2)
+                    self.plannedLocations = plannedLocations
+                    print("Received a plan")
                 }
             } catch {
                 print(error.localizedDescription)
@@ -55,16 +72,15 @@ class MapLocalViewModel: ObservableObject {
     func updateLocation() {
         locationService.onLocationUpdate = { [self] location in
             initialLocation = location
-            fetchBankLocations(latitude: initialLocation.coordinate.latitude, longitude: initialLocation.coordinate.longitude)
+            fetchAttractionsLocations(latitude: initialLocation.coordinate.latitude, longitude: initialLocation.coordinate.longitude)
 
         }
         locationService.startUpdatingLocation()
     }
     
-    func calculateRoute(to destinationCoordinate: CLLocationCoordinate2D) {
-         let sourceCoordinate = self.initialLocation.coordinate
-         let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinate)
-         let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate)
+    func calculateRoute(from startCoordinate: CLLocationCoordinate2D, to endCoordinate: CLLocationCoordinate2D) {
+         let sourcePlacemark = MKPlacemark(coordinate: startCoordinate)
+         let destinationPlacemark = MKPlacemark(coordinate: endCoordinate)
 
          let directionRequest = MKDirections.Request()
          directionRequest.source = MKMapItem(placemark: sourcePlacemark)
@@ -77,9 +93,15 @@ class MapLocalViewModel: ObservableObject {
                  print("Error: \(error?.localizedDescription ?? "Failed to find route.")")
                  return
              }
-             DispatchQueue.main.async {
-                 self.route = route
+             
+             routesBetweenPlennedLocationsInnerArray.append(route)
+             let totalCount = plannedLocations.reduce(0) { $0 + $1.count }
+             if (routesBetweenPlennedLocationsInnerArray.count == totalCount){
+                 DispatchQueue.main.async {
+                     self.routesBetweenPlennedLocations = self.routesBetweenPlennedLocationsInnerArray
+                 }
              }
+             
          }
      }
 }

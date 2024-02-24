@@ -18,7 +18,8 @@ struct MapLocal: View {
                     places: vm.places,
                     selectedPlaceTitle: $vm.selectedPlaceTitle,
                     route: $vm.route,
-                    isAnnotationDetailPresented: $vm.isAnnotationDetailPresented
+                    isAnnotationDetailPresented: $vm.isAnnotationDetailPresented,
+                    routesBetweenPlennedLocations: $vm.routesBetweenPlennedLocations
                 )
             } else {
                 ProgressView()
@@ -53,6 +54,7 @@ struct MapView: UIViewRepresentable {
     @Binding var selectedPlaceTitle: String?
     @Binding var route: MKRoute?
     @Binding var isAnnotationDetailPresented: Bool
+    @Binding var routesBetweenPlennedLocations: [MKRoute?]
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -83,16 +85,19 @@ struct MapView: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: Context) {
         uiView.removeOverlays(uiView.overlays)
         
-        if let route = self.route {
-            uiView.addOverlay(route.polyline, level: .aboveRoads)
-
-            // Check if the route has changed since last update
-            if route != context.coordinator.lastRoute {
-                let padding = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
-                uiView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: padding, animated: true)
-
-                context.coordinator.lastRoute = route
+        for route in routesBetweenPlennedLocations {
+            if let route = route {
+                uiView.addOverlay(route.polyline, level: .aboveRoads)
+                
+                // Check if the route has changed since last update
+                if routesBetweenPlennedLocations != context.coordinator.lastRoute {
+                    let padding = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+                    uiView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: padding, animated: true)
+                    
+                    context.coordinator.lastRoute = routesBetweenPlennedLocations
+                }
             }
+            
         }
     }
     
@@ -103,7 +108,7 @@ struct MapView: UIViewRepresentable {
     class Coordinator: NSObject, MKMapViewDelegate {
         
         var parent: MapView
-        var lastRoute: MKRoute? // Track the last route used for setting the visible region
+        var lastRoute: [MKRoute?]? // Track the last route used for setting the visible region
 
         init(_ parent: MapView) {
             self.parent = parent
