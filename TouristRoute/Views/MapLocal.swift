@@ -19,7 +19,8 @@ struct MapLocal: View {
                     selectedPlaceTitle: $vm.selectedPlaceTitle,
                     route: $vm.route,
                     isAnnotationDetailPresented: $vm.isAnnotationDetailPresented,
-                    routesBetweenPlennedLocations: $vm.routesBetweenPlennedLocations
+                    routesBetweenPlennedLocations: $vm.routesBetweenPlennedLocations,
+                    isCreateRouteViewPresented: $vm.isCreateRouteViewPresented
                 )
             } else {
                 ProgressView()
@@ -44,6 +45,17 @@ struct MapLocal: View {
                 )
             }
         }
+        .sheet(isPresented: $vm.isCreateRouteViewPresented) {
+            CreateRouteView(
+                selectedNumberOfDays: $vm.selectedNumberOfDays,
+                selectDistance: $vm.selectDistance, 
+                createRoutes: {
+                    vm.isCreateRouteViewPresented = false
+                    vm.createRoutes()
+                }
+            
+            )
+        }
     }
 }
 
@@ -55,6 +67,7 @@ struct MapView: UIViewRepresentable {
     @Binding var route: MKRoute?
     @Binding var isAnnotationDetailPresented: Bool
     @Binding var routesBetweenPlennedLocations: [MKRoute?]
+    @Binding var isCreateRouteViewPresented: Bool
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -79,6 +92,24 @@ struct MapView: UIViewRepresentable {
         let button = MKUserTrackingButton(mapView: mapView)
         mapView.addSubview(button)
         
+        // Configure the "Create route" button with Auto Layout
+        let createRouteButton = UIButton(type: .system)
+        createRouteButton.translatesAutoresizingMaskIntoConstraints = false
+        createRouteButton.backgroundColor = .systemBlue
+        createRouteButton.setTitle("Create route", for: .normal)
+        createRouteButton.setTitleColor(.white, for: .normal)
+        createRouteButton.layer.cornerRadius = 8
+        mapView.addSubview(createRouteButton)
+
+        NSLayoutConstraint.activate([
+            createRouteButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -20),
+            createRouteButton.centerXAnchor.constraint(equalTo: mapView.centerXAnchor),
+            createRouteButton.widthAnchor.constraint(equalToConstant: 150),
+            createRouteButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        createRouteButton.addTarget(context.coordinator, action: #selector(Coordinator.createRouteTapped), for: .touchUpInside)
+
         return mapView
     }
     
@@ -109,7 +140,7 @@ struct MapView: UIViewRepresentable {
         
         var parent: MapView
         var lastRoute: [MKRoute?]? // Track the last route used for setting the visible region
-
+        
         init(_ parent: MapView) {
             self.parent = parent
         }
@@ -128,7 +159,7 @@ struct MapView: UIViewRepresentable {
             }
             return MKOverlayRenderer(overlay: overlay)
         }
-
+        
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             if let annotation = view.annotation as? MKPointAnnotation {
                 DispatchQueue.main.async {
@@ -137,6 +168,11 @@ struct MapView: UIViewRepresentable {
                 }
             }
         }
+        
+        @objc func createRouteTapped() {
+            self.parent.isCreateRouteViewPresented = true
+        }
+        
     }
 }
 

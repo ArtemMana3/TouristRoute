@@ -16,23 +16,34 @@ class MapLocalViewModel: ObservableObject {
     @Published var route: MKRoute? // The current route
     @Published var isAnnotationDetailPresented: Bool = false
     
+    @Published var isCreateRouteViewPresented: Bool = false
+    @Published var selectedNumberOfDays: Int = 1
+    @Published var selectDistance: Double = 10 
+
     var routesBetweenPlennedLocationsInnerArray: [MKRoute?] = []
     @Published var routesBetweenPlennedLocations: [MKRoute?] = []
     @Published var plannedLocations: [[Location]] = [[]]
     
     var selectedPlaceForRoute: String? {
         didSet {
-            var startCondinate = self.initialLocation.coordinate
+            let startCondinate = self.initialLocation.coordinate
             if let title = selectedPlaceForRoute,
                let place = places.first(where: { $0.name == title }) {
-                
-                for locations in plannedLocations {
-                    for location in locations {
-                        calculateRoute(from: startCondinate, to: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng))
-                        startCondinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng)
-                    }
-                }
-                
+                calculateRoute(
+                    from: startCondinate,
+                    to: CLLocationCoordinate2D(latitude: place.location.lat, longitude: place.location.lng),
+                    isOnlyOneAttraction: true
+                )
+            }
+        }
+    }
+    
+    func createRoutes() {
+        var startCondinate = self.initialLocation.coordinate
+        for locations in plannedLocations {
+            for location in locations {
+                calculateRoute(from: startCondinate, to: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng))
+                startCondinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng)
             }
         }
     }
@@ -59,7 +70,7 @@ class MapLocalViewModel: ObservableObject {
                     self.places = places
                     let locations: [Location] = places.map { $0.location }
                     let planner = RoutePlanner(locations: locations, startingPoint: Location(lat: latitude, lng: longitude))
-                    let plannedLocations = planner.planRoute(for: 2)
+                    let plannedLocations = planner.planRoute(for: 3)
                     self.plannedLocations = plannedLocations
                     print("Received a plan")
                 }
@@ -78,7 +89,7 @@ class MapLocalViewModel: ObservableObject {
         locationService.startUpdatingLocation()
     }
     
-    func calculateRoute(from startCoordinate: CLLocationCoordinate2D, to endCoordinate: CLLocationCoordinate2D) {
+    func calculateRoute(from startCoordinate: CLLocationCoordinate2D, to endCoordinate: CLLocationCoordinate2D, isOnlyOneAttraction: Bool = false) {
          let sourcePlacemark = MKPlacemark(coordinate: startCoordinate)
          let destinationPlacemark = MKPlacemark(coordinate: endCoordinate)
 
@@ -96,7 +107,7 @@ class MapLocalViewModel: ObservableObject {
              
              routesBetweenPlennedLocationsInnerArray.append(route)
              let totalCount = plannedLocations.reduce(0) { $0 + $1.count }
-             if (routesBetweenPlennedLocationsInnerArray.count == totalCount){
+             if (routesBetweenPlennedLocationsInnerArray.count == totalCount || isOnlyOneAttraction){
                  DispatchQueue.main.async {
                      self.routesBetweenPlennedLocations = self.routesBetweenPlennedLocationsInnerArray
                  }
