@@ -13,7 +13,13 @@ struct MapLocal: View {
     var body: some View {
         VStack {
             if !vm.places.isEmpty {
-                MapView(initialLocation: vm.initialLocation, places: vm.places, selectedPlaceTitle: $vm.selectedPlaceTitle)
+                MapView(
+                    initialLocation: vm.initialLocation,
+                    places: vm.places,
+                    selectedPlaceTitle: $vm.selectedPlaceTitle,
+                    route: $vm.route,
+                    isAnnotationDetailPresented: $vm.isAnnotationDetailPresented
+                )
             } else {
                 ProgressView()
             }
@@ -21,12 +27,20 @@ struct MapLocal: View {
         .onAppear {
             vm.updateLocation()
         }
-        .sheet(item: $vm.selectedPlaceTitle) { title in
-            let place = vm.places.first(where: { $0.name == title })
+        .sheet(isPresented: $vm.isAnnotationDetailPresented) {
+            let place = vm.places.first(where: { $0.name == vm.selectedPlaceTitle })
             
             if let place = place {
                 let photoReference = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1500&photoreference=\(place.photoReference)&key=AIzaSyBioLkNiNlJPNetFNFA1Js1Xp2RIRgpy5k"
-                AnnotationDetailView(title: title, imageUrl: URL(string: photoReference)!)
+                
+                AnnotationDetailView(
+                    title: vm.selectedPlaceTitle ?? "",
+                    imageUrl: URL(string: photoReference)!,
+                    onRouteSelect: { selectedTitle in
+                        vm.selectedPlaceForRoute = selectedTitle
+                        vm.isAnnotationDetailPresented = false
+                     }
+                )
             }
         }
     }
@@ -37,7 +51,9 @@ struct MapView: UIViewRepresentable {
     var initialLocation: CLLocation
     let places: [Place]
     @Binding var selectedPlaceTitle: String?
-
+    @Binding var route: MKRoute?
+    @Binding var isAnnotationDetailPresented: Bool
+    
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
@@ -64,7 +80,21 @@ struct MapView: UIViewRepresentable {
         return mapView
     }
     
-    func updateUIView(_ view: MKMapView, context: Context) {}
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+        uiView.removeOverlays(uiView.overlays)
+        
+        if let route = self.route {
+            uiView.addOverlay(route.polyline, level: .aboveRoads)
+
+            // Check if the route has changed since last update
+            if route != context.coordinator.lastRoute {
+                let padding = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+                uiView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: padding, animated: true)
+
+                context.coordinator.lastRoute = route
+            }
+        }
+    }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -73,27 +103,32 @@ struct MapView: UIViewRepresentable {
     class Coordinator: NSObject, MKMapViewDelegate {
         
         var parent: MapView
-        
+        var lastRoute: MKRoute? // Track the last route used for setting the visible region
+
         init(_ parent: MapView) {
             self.parent = parent
         }
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            if let circle = overlay as? MKCircle {
+            if let polyline = overlay as? MKPolyline {
+                let renderer = MKPolylineRenderer(polyline: polyline)
+                renderer.strokeColor = .blue
+                renderer.lineWidth = 4.0
+                return renderer
+            } else if let circle = overlay as? MKCircle {
                 let renderer = MKCircleRenderer(circle: circle)
                 renderer.strokeColor = UIColor.red
                 renderer.fillColor = UIColor.red.withAlphaComponent(0.3)
                 return renderer
-            } else {
-                return MKOverlayRenderer(overlay: overlay)
             }
+            return MKOverlayRenderer(overlay: overlay)
         }
-        
+
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             if let annotation = view.annotation as? MKPointAnnotation {
                 DispatchQueue.main.async {
                     self.parent.selectedPlaceTitle = annotation.title ?? ""
-                    
+                    self.parent.isAnnotationDetailPresented = true
                 }
             }
         }

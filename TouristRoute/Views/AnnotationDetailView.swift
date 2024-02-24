@@ -14,7 +14,9 @@ struct AnnotationDetailView: View {
     @State private var generatedText: String?
     var imageUrl: URL
     @StateObject private var imageLoader = ImageLoader()
-    
+    var onRouteSelect: (String) -> Void
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         NavigationView {
             VStack {
@@ -22,7 +24,9 @@ struct AnnotationDetailView: View {
                     image
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 200, height: 200)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 300, height: 250)
+                        .clipped()
                 } else {
                     ProgressView().onAppear {
                         imageLoader.loadImage(from: imageUrl)
@@ -47,6 +51,14 @@ struct AnnotationDetailView: View {
             .padding()
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Route") {
+                        onRouteSelect(title)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }
         }
     }
 }

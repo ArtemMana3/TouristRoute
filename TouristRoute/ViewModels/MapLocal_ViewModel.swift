@@ -13,7 +13,18 @@ class MapLocalViewModel: ObservableObject {
     @Published var initialLocation = CLLocation(latitude: 50.4501, longitude: 30.5234)
     private let locationService = LocationService()
     @Published var selectedPlaceTitle: String? = nil
-
+    @Published var route: MKRoute? // The current route
+    @Published var isAnnotationDetailPresented: Bool = false
+    
+    var selectedPlaceForRoute: String? {
+        didSet {
+            if let title = selectedPlaceForRoute,
+               let place = places.first(where: { $0.name == title }) {
+                calculateRoute(to: CLLocationCoordinate2D(latitude: place.location.lat, longitude: place.location.lng))
+            }
+        }
+    }
+    
     func fetchBankLocations(latitude: Double, longitude: Double) {
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=9000&type=tourist_attraction&keyword=top&key=AIzaSyBioLkNiNlJPNetFNFA1Js1Xp2RIRgpy5k"
         guard let url = URL(string: urlString) else { return }
@@ -49,4 +60,26 @@ class MapLocalViewModel: ObservableObject {
         }
         locationService.startUpdatingLocation()
     }
+    
+    func calculateRoute(to destinationCoordinate: CLLocationCoordinate2D) {
+         let sourceCoordinate = self.initialLocation.coordinate
+         let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinate)
+         let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate)
+
+         let directionRequest = MKDirections.Request()
+         directionRequest.source = MKMapItem(placemark: sourcePlacemark)
+         directionRequest.destination = MKMapItem(placemark: destinationPlacemark)
+         directionRequest.transportType = .walking
+
+         let directions = MKDirections(request: directionRequest)
+         directions.calculate { [weak self] response, error in
+             guard let self = self, let route = response?.routes.first else {
+                 print("Error: \(error?.localizedDescription ?? "Failed to find route.")")
+                 return
+             }
+             DispatchQueue.main.async {
+                 self.route = route
+             }
+         }
+     }
 }
