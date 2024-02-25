@@ -52,7 +52,7 @@ struct MapLocal: View {
                 selectDistance: $vm.selectDistance, 
                 createRoutes: {
                     vm.isCreateRouteViewPresented = false
-                    vm.createRoutes()
+                    vm.createRoutes(numberOfDay: 3)
                     vm.showSegmentedControl = true
                 }
             
