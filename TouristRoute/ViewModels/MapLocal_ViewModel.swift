@@ -51,7 +51,7 @@ class MapLocalViewModel: ObservableObject {
     }
     
     func createRoutes(numberOfDay: Int) {
-        let locations = plannedLocations[numberOfDay - 1]
+        let locations = plannedLocations[numberOfDay]
         calculateRoutes(locations: locations)
     }
     

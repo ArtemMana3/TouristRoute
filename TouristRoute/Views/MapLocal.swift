@@ -21,7 +21,11 @@ struct MapLocal: View {
                     isAnnotationDetailPresented: $vm.isAnnotationDetailPresented,
                     routesBetweenPlennedLocations: $vm.routesBetweenPlennedLocations,
                     isCreateRouteViewPresented: $vm.isCreateRouteViewPresented,
-                    showSegmentedControl: $vm.showSegmentedControl
+                    showSegmentedControl: $vm.showSegmentedControl, 
+                    changeSegment: {
+                        vm.isCreateRouteViewPresented = false
+                        vm.createRoutes(numberOfDay: $0)
+                    }
                 )
             } else {
                 ProgressView()
@@ -52,7 +56,7 @@ struct MapLocal: View {
                 selectDistance: $vm.selectDistance, 
                 createRoutes: {
                     vm.isCreateRouteViewPresented = false
-                    vm.createRoutes(numberOfDay: 3)
+                    vm.createRoutes(numberOfDay: 0)
                     vm.showSegmentedControl = true
                 }
             
@@ -71,6 +75,7 @@ struct MapView: UIViewRepresentable {
     @Binding var routesBetweenPlennedLocations: [MKRoute?]
     @Binding var isCreateRouteViewPresented: Bool
     @Binding var showSegmentedControl: Bool
+    var changeSegment: (Int) -> Void
 
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -227,6 +232,8 @@ struct MapView: UIViewRepresentable {
         }
         
         @objc func segmentChanged(_ sender: UISegmentedControl) {
+            createRouteTapped()
+            self.parent.changeSegment(sender.selectedSegmentIndex)
             let selectedIndex = sender.selectedSegmentIndex
             print("Selected segment index: \(selectedIndex)")
         }
