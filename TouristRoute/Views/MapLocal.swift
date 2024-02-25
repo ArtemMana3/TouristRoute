@@ -134,6 +134,7 @@ struct MapView: UIViewRepresentable {
         // UISegmentedControl setup
          let segmentedControl = UISegmentedControl(items: ["Option 1", "Option 2"])
          segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+         segmentedControl.selectedSegmentIndex = 0
          segmentedControl.isHidden = true // Initially hidden
          mapView.addSubview(segmentedControl)
          
@@ -145,6 +146,8 @@ struct MapView: UIViewRepresentable {
              segmentedControl.heightAnchor.constraint(equalToConstant: 30)
          ])
          
+        segmentedControl.addTarget(context.coordinator, action: #selector(Coordinator.segmentChanged(_:)), for: .valueChanged)
+
          // Storing references in the Coordinator
          context.coordinator.createRouteButton = createRouteButton
          context.coordinator.segmentedControl = segmentedControl
@@ -223,8 +226,9 @@ struct MapView: UIViewRepresentable {
             self.parent.showSegmentedControl = false
         }
         
-        @objc func toggleView() {
-
+        @objc func segmentChanged(_ sender: UISegmentedControl) {
+            let selectedIndex = sender.selectedSegmentIndex
+            print("Selected segment index: \(selectedIndex)")
         }
     }
 }
