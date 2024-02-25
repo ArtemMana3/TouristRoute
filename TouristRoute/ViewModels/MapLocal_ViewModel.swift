@@ -50,6 +50,11 @@ class MapLocalViewModel: ObservableObject {
         }
     }
     
+    func createRoutes(numberOfDay: Int) {
+        let locations = plannedLocations[numberOfDay - 1]
+        calculateRoutes(locations: locations)
+    }
+    
     func fetchAttractionsLocations(latitude: Double, longitude: Double) {
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=9000&type=tourist_attraction&keyword=top&key=AIzaSyBioLkNiNlJPNetFNFA1Js1Xp2RIRgpy5k"
         guard let url = URL(string: urlString) else { return }
@@ -117,5 +122,36 @@ class MapLocalViewModel: ObservableObject {
              }
              
          }
+     }
+    
+    func calculateRoutes(locations: [Location]) {
+        for index in 0...locations.count - 2 {
+            let startLocation = locations[index]
+            let endLocation = locations[index + 1]
+            let sourcePlacemark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: startLocation.lat, longitude: startLocation.lng))
+            let destinationPlacemark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: endLocation.lat, longitude: endLocation.lng))
+            
+            let directionRequest = MKDirections.Request()
+            directionRequest.source = MKMapItem(placemark: sourcePlacemark)
+            directionRequest.destination = MKMapItem(placemark: destinationPlacemark)
+            directionRequest.transportType = .walking
+            
+            let directions = MKDirections(request: directionRequest)
+            directions.calculate { [weak self] response, error in
+                guard let self = self, let route = response?.routes.first else {
+                    print("Error: \(error?.localizedDescription ?? "Failed to find route.")")
+                    return
+                }
+                
+                routesBetweenPlennedLocationsInnerArray.append(route)
+                if (routesBetweenPlennedLocationsInnerArray.count == locations.count - 1){
+                    DispatchQueue.main.async {
+                        self.routesBetweenPlennedLocations = self.routesBetweenPlennedLocationsInnerArray
+                        self.routesBetweenPlennedLocationsInnerArray = []
+                    }
+                }
+                
+            }
+        }
      }
 }
