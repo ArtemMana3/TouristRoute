@@ -75,11 +75,6 @@ class MapLocalViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.places = places
-                    let locations: [Location] = places.map { $0.location }
-                    let planner = RoutePlanner(locations: locations, startingPoint: Location(lat: latitude, lng: longitude))
-                    let plannedLocations = planner.planRoute(for: 3)
-                    self.plannedLocations = plannedLocations
-                    print("Received a plan")
                 }
             } catch {
                 print(error.localizedDescription)

@@ -9,13 +9,14 @@ import Foundation
 import CoreLocation
 
 class RoutePlanner {
-    let dailyLimitKm: Double = 10.0
+    var dailyLimitKm: Double = 10.0
     var locations: [Location]
     let startingPoint: Location
 
-    init(locations: [Location], startingPoint: Location) {
+    init(locations: [Location], startingPoint: Location, dailyLimitKm: Double) {
         self.locations = locations
         self.startingPoint = startingPoint
+        self.dailyLimitKm = dailyLimitKm
     }
 
     func planRoute(for days: Int) -> [[Location]] {

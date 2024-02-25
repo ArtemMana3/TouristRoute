@@ -57,8 +57,18 @@ struct MapLocal: View {
                 selectDistance: $vm.selectDistance, 
                 createRoutes: {
                     vm.isCreateRouteViewPresented = false
+                    let locations: [Location] = vm.places.map { $0.location }
+                    let planner = RoutePlanner(
+                        locations: locations,
+                        startingPoint: Location(lat: vm.initialLocation.coordinate.latitude, lng: vm.initialLocation.coordinate.longitude), 
+                        dailyLimitKm: vm.selectDistance
+                    )
+                    let plannedLocations = planner.planRoute(for: 3)
+                    vm.plannedLocations = plannedLocations
+                    print("Received a plan")
                     vm.createRoutes(numberOfDay: 0)
                     vm.showSegmentedControl = true
+                    
                 }
             
             )
@@ -139,7 +149,7 @@ struct MapView: UIViewRepresentable {
         cleanRouteButton.addTarget(context.coordinator, action: #selector(Coordinator.cleanRouteTapped), for: .touchUpInside)
 
         // UISegmentedControl setup
-         let segmentedControl = UISegmentedControl(items: ["Option 1", "Option 2"])
+         let segmentedControl = UISegmentedControl(items: ["Day 1", "Day 2"])
          segmentedControl.translatesAutoresizingMaskIntoConstraints = false
          segmentedControl.selectedSegmentIndex = 0
          segmentedControl.isHidden = true // Initially hidden
