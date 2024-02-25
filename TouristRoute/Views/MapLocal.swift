@@ -22,6 +22,7 @@ struct MapLocal: View {
                     routesBetweenPlennedLocations: $vm.routesBetweenPlennedLocations,
                     isCreateRouteViewPresented: $vm.isCreateRouteViewPresented,
                     showSegmentedControl: $vm.showSegmentedControl, 
+                    selectedNumberOfDays: $vm.selectedNumberOfDays,
                     changeSegment: {
                         vm.isCreateRouteViewPresented = false
                         vm.createRoutes(numberOfDay: $0)
@@ -75,6 +76,7 @@ struct MapView: UIViewRepresentable {
     @Binding var routesBetweenPlennedLocations: [MKRoute?]
     @Binding var isCreateRouteViewPresented: Bool
     @Binding var showSegmentedControl: Bool
+    @Binding var selectedNumberOfDays: Int
     var changeSegment: (Int) -> Void
 
     func makeUIView(context: Context) -> MKMapView {
@@ -165,7 +167,16 @@ struct MapView: UIViewRepresentable {
         
         context.coordinator.createRouteButton?.isHidden = showSegmentedControl
         context.coordinator.segmentedControl?.isHidden = !showSegmentedControl
-        
+        if (showSegmentedControl) {
+            var daysArray = [String]()
+            for i in 1...selectedNumberOfDays {
+                let dayString = "Day \(i)"
+                daysArray.append(dayString)
+            }
+            if (context.coordinator.segmentedControl?.numberOfSegments != daysArray.count) {
+                context.coordinator.updateSegments(with: daysArray)
+            }
+        }
         for route in routesBetweenPlennedLocations {
             if let route = route {
                 uiView.addOverlay(route.polyline, level: .aboveRoads)
@@ -236,6 +247,16 @@ struct MapView: UIViewRepresentable {
             self.parent.changeSegment(sender.selectedSegmentIndex)
             let selectedIndex = sender.selectedSegmentIndex
             print("Selected segment index: \(selectedIndex)")
+        }
+        
+        func updateSegments(with segments: [String]) {
+            // Remove all existing segments
+            segmentedControl?.removeAllSegments()
+            // Add new segments
+            for (index, segment) in segments.enumerated() {
+                segmentedControl?.insertSegment(withTitle: segment, at: index, animated: false)
+            }
+            segmentedControl?.selectedSegmentIndex = 0
         }
     }
 }
