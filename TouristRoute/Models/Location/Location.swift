@@ -16,4 +16,8 @@ struct Location: Codable {
     var asCLLocation: CLLocation {
         return CLLocation(latitude: lat, longitude: lng)
     }
+    
+    var asCLLocationCoordinate2D: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: lat, longitude: lng)
+    }
 }

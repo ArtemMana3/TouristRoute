@@ -20,6 +20,7 @@
 		2F08BA522A18C409008D4596 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08BA512A18C409008D4596 /* Color.swift */; };
 		2F3048A72B8A6E6900C1718B /* CreateRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3048A62B8A6E6900C1718B /* CreateRouteView.swift */; };
 		2F40A9AF2A239A6C006E8CC4 /* MapLocal_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40A9AE2A239A6C006E8CC4 /* MapLocal_ViewModel.swift */; };
+		2F44FD712B8CEFDC007CFCAB /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44FD702B8CEFDC007CFCAB /* KMeans.swift */; };
 		2F62996429200E25002B787B /* CurrencyExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F62996329200E25002B787B /* CurrencyExchangeApp.swift */; };
 		2F62996829200E27002B787B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F62996729200E27002B787B /* Assets.xcassets */; };
 		2F62996B29200E27002B787B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F62996A29200E27002B787B /* Preview Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		2F08BA512A18C409008D4596 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2F3048A62B8A6E6900C1718B /* CreateRouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRouteView.swift; sourceTree = "<group>"; };
 		2F40A9AE2A239A6C006E8CC4 /* MapLocal_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocal_ViewModel.swift; sourceTree = "<group>"; };
+		2F44FD702B8CEFDC007CFCAB /* KMeans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeans.swift; sourceTree = "<group>"; };
 		2F62996029200E25002B787B /* TouristRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouristRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F62996329200E25002B787B /* CurrencyExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeApp.swift; sourceTree = "<group>"; };
 		2F62996729200E27002B787B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				2F041C6F2B86A96500FE13F4 /* ImageLoader.swift */,
 				2F041C902B87A45900FE13F4 /* OpenAIController.swift */,
 				2FEE711E2B8A175A00CDB11D /* RoutePlanner.swift */,
+				2F44FD702B8CEFDC007CFCAB /* KMeans.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				2F62996429200E25002B787B /* CurrencyExchangeApp.swift in Sources */,
 				2FAD2F672A0FF09D002E648B /* Location.swift in Sources */,
 				2F3048A72B8A6E6900C1718B /* CreateRouteView.swift in Sources */,
+				2F44FD712B8CEFDC007CFCAB /* KMeans.swift in Sources */,
 				2F041C6E2B86A30400FE13F4 /* IdentifiableAnnotation.swift in Sources */,
 				2F041C722B86AE0300FE13F4 /* Photo.swift in Sources */,
 				2F40A9AF2A239A6C006E8CC4 /* MapLocal_ViewModel.swift in Sources */,

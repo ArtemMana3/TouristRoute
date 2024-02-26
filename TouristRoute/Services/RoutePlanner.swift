@@ -12,11 +12,13 @@ class RoutePlanner {
     var dailyLimitKm: Double = 10.0
     var locations: [Location]
     let startingPoint: Location
-
+    let kmean: KMeans
+    
     init(locations: [Location], startingPoint: Location, dailyLimitKm: Double) {
         self.locations = locations
         self.startingPoint = startingPoint
         self.dailyLimitKm = dailyLimitKm
+        self.kmean = KMeans(locations: locations, startingPoint: startingPoint, dailyLimitKm: dailyLimitKm)
     }
 
     func planRoute(for days: Int) -> [[Location]] {
@@ -52,7 +54,11 @@ class RoutePlanner {
 
         return routes
     }
-
+    
+    func clusterLocations(startingLocation: Location) -> [[Location]] {
+        return kmean.clusterLocations(intoGroups: 3)
+    }
+    
     private func findNextLocation(currentLocation: Location, remainingLocations: [Location], dailyDistance: Double) -> Location? {
         let sortedLocations = remainingLocations.sorted { (loc1: Location, loc2: Location) -> Bool in
             let distance1 = distanceBetween(loc1.asCLLocation.coordinate, currentLocation.asCLLocation.coordinate)

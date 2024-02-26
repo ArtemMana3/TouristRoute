@@ -63,8 +63,11 @@ struct MapLocal: View {
                         startingPoint: Location(lat: vm.initialLocation.coordinate.latitude, lng: vm.initialLocation.coordinate.longitude), 
                         dailyLimitKm: vm.selectDistance
                     )
-                    let plannedLocations = planner.planRoute(for: 3)
-                    vm.plannedLocations = plannedLocations
+//                    let plannedLocations = planner.planRoute(for: 3)
+                    let plannedLocationsFind = planner.clusterLocations(
+                        startingLocation: Location(lat: vm.initialLocation.coordinate.latitude, lng: vm.initialLocation.coordinate.longitude))
+                                              
+                    vm.plannedLocations = plannedLocationsFind
                     print("Received a plan")
                     vm.createRoutes(numberOfDay: 0)
                     vm.showSegmentedControl = true
