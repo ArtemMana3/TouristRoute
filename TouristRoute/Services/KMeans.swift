@@ -87,7 +87,7 @@ class KMeans {
         
         let centroids = (0..<k).compactMap { _ in locations.randomElement()?.asCLLocationCoordinate2D }
         var clusters: [[Location]] = Array(repeating: [], count: k)
-        var totalDistancesInClusters: [Double] = []
+        var totalDistancesInClusters: [(distance: Double, path: [Location])] = []
         
         clusters = Array(repeating: [], count: k)
         
@@ -97,8 +97,14 @@ class KMeans {
         }
         
         totalDistancesInClusters = evaluateClusters(clusters: clusters)
-        
-        return (clusters, totalDistancesInClusters)
+        var totalDistances: [Double] = []
+        var sortedLocationsArray: [[Location]] = []
+
+        for result in totalDistancesInClusters {
+            totalDistances.append(result.distance)
+            sortedLocationsArray.append(result.path)
+        }
+        return (sortedLocationsArray, totalDistances)
     }
     
     private func nearestCentroid(for location: Location, centroids: [CLLocationCoordinate2D]) -> Int {
@@ -116,9 +122,9 @@ class KMeans {
         return nearestIndex
     }
     
-    private func evaluateClusters(clusters: [[Location]]) -> [Double] {
-        let totalDistances = clusters.map { cluster -> Double in
-            return greedyTSPDistance(forCluster: cluster)
+    private func evaluateClusters(clusters: [[Location]]) -> [(distance: Double, path: [Location])] {
+        let totalDistances = clusters.map { cluster -> (distance: Double, path: [Location]) in
+            return greedyTSPDistanceAndPath(forCluster: cluster)
         }
         return totalDistances
     }
@@ -129,13 +135,15 @@ class KMeans {
         return startCoord.distance(from: endCoord)
     }
     
-    func greedyTSPDistance(forCluster cluster: [Location]) -> Double {
-        guard cluster.count > 1 else { return 0 }
+    func greedyTSPDistanceAndPath(forCluster cluster: [Location]) -> (distance: Double, path: [Location]) {
+        guard cluster.count > 1 else { return (0, cluster) }
         
         var visited: [Bool] = Array(repeating: false, count: cluster.count)
+        var pathIndices: [Int] = []
         var totalDistance: Double = 0
         var currentLocationIndex = 0
         visited[currentLocationIndex] = true
+        pathIndices.append(currentLocationIndex)
         
         for _ in 1..<cluster.count {
             var nearestDistance = Double.greatestFiniteMagnitude
@@ -150,14 +158,22 @@ class KMeans {
             }
             
             visited[nearestIndex] = true
+            pathIndices.append(nearestIndex)
             totalDistance += nearestDistance
             currentLocationIndex = nearestIndex
         }
         
+        // Добавление дистанции от последней локации до начальной
         totalDistance += distanceBetween(cluster[currentLocationIndex], cluster[0])
+        pathIndices.append(0) // Опционально, если вы хотите явно вернуться к начальной точке в пути
         
-        return totalDistance
+        // Создание массива местоположений в порядке посещения
+        let path = pathIndices.map { cluster[$0] }
+        
+        return (totalDistance, path)
     }
+
+
 }
 
 extension Sequence {
