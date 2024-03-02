@@ -39,10 +39,15 @@ class KMeans {
     
     func compareAndUpdateBestClusters(currentClusters: [[Location]], currentScore: [Double], bestClusters: inout [[Location]], bestScore: inout [Double]) {
         // Create tuples of (score, cluster) for current and best, then sort them by score.
-        
         if (bestScore.max()! - bestScore.min()!) > 1500 {
             bestClusters = currentClusters
             bestScore = currentScore
+        }
+        
+        let currentScoreSum = currentScore.reduce(0, +)
+        let bestScoreSum = bestScore.reduce(0, +)
+        if ((currentScoreSum - bestScoreSum) > 2500) {
+            return
         }
         
         let currentScoreClusterPairs = zip(currentScore, currentClusters).sorted { $0.0 < $1.0 }
@@ -65,7 +70,6 @@ class KMeans {
                 }
             }
         }
-
     }
     
     func isFirstArrayBetter(firstArray: [Double], secondArray: [Double]) -> Bool {
@@ -87,7 +91,6 @@ class KMeans {
         
         let centroids = (0..<k).compactMap { _ in locations.randomElement()?.asCLLocationCoordinate2D }
         var clusters: [[Location]] = Array(repeating: [], count: k)
-        var totalDistancesInClusters: [(distance: Double, path: [Location])] = []
         
         clusters = Array(repeating: [], count: k)
         
@@ -96,11 +99,11 @@ class KMeans {
             clusters[nearestCentroidIndex].append(location)
         }
         
-        totalDistancesInClusters = evaluateClusters(clusters: clusters)
+        let evaluateClusters = evaluateClusters(clusters: clusters)
         var totalDistances: [Double] = []
         var sortedLocationsArray: [[Location]] = []
 
-        for result in totalDistancesInClusters {
+        for result in evaluateClusters {
             totalDistances.append(result.distance)
             sortedLocationsArray.append(result.path)
         }
@@ -172,8 +175,6 @@ class KMeans {
         
         return (totalDistance, path)
     }
-
-
 }
 
 extension Sequence {
