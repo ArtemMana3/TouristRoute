@@ -40,21 +40,6 @@ class MapLocalViewModel: ObservableObject {
         }
     }
     
-    func createRoutes() {
-        var startCondinate = self.initialLocation.coordinate
-        for locations in plannedLocations {
-            for location in locations {
-                calculateRoute(from: startCondinate, to: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng))
-                startCondinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng)
-            }
-        }
-    }
-    
-    func createRoutes(numberOfDay: Int) {
-        let locations = plannedLocations[numberOfDay]
-        calculateRoutes(locations: locations)
-    }
-    
     func fetchAttractionsLocations(latitude: Double, longitude: Double) {
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=5000&type=tourist_attraction&keyword=top&key=AIzaSyBioLkNiNlJPNetFNFA1Js1Xp2RIRgpy5k"
         guard let url = URL(string: urlString) else { return }
@@ -89,6 +74,21 @@ class MapLocalViewModel: ObservableObject {
 
         }
         locationService.startUpdatingLocation()
+    }
+    
+    func createRoutes() {
+        var startCondinate = self.initialLocation.coordinate
+        for locations in plannedLocations {
+            for location in locations {
+                calculateRoute(from: startCondinate, to: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng))
+                startCondinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng)
+            }
+        }
+    }
+    
+    func createRoutes(numberOfDay: Int) {
+        let locations = plannedLocations[numberOfDay]
+        calculateRoutes(locations: locations)
     }
     
     func calculateRoute(from startCoordinate: CLLocationCoordinate2D, to endCoordinate: CLLocationCoordinate2D, isOnlyOneAttraction: Bool = false) {

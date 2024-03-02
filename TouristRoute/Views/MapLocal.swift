@@ -55,13 +55,14 @@ struct MapLocal: View {
             CreateRouteView(
                 selectedNumberOfDays: $vm.selectedNumberOfDays,
                 selectDistance: $vm.selectDistance, 
+                
                 createRoutes: {
                     vm.isCreateRouteViewPresented = false
                     let locations: [Location] = vm.places.map { $0.location }
+                    
                     let kmean = KMeans(locations: locations)
-                    let plannedLocationsFind = kmean.findBestClustering(intoGroups: vm.selectedNumberOfDays, iterations: 200)
+                    vm.plannedLocations = kmean.findBestClustering(intoGroups: vm.selectedNumberOfDays, iterations: 200)
                                               
-                    vm.plannedLocations = plannedLocationsFind
                     print("Received a plan")
                     vm.createRoutes(numberOfDay: 0)
                     vm.showSegmentedControl = true
