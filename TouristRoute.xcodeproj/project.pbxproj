@@ -32,7 +32,6 @@
 		2FAD2F672A0FF09D002E648B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F662A0FF09D002E648B /* Location.swift */; };
 		2FAD2F692A0FF0B0002E648B /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F682A0FF0B0002E648B /* APIResponse.swift */; };
 		2FAD2F6B2A0FF16D002E648B /* Viewport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F6A2A0FF16D002E648B /* Viewport.swift */; };
-		2FEE711F2B8A175A00CDB11D /* RoutePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE711E2B8A175A00CDB11D /* RoutePlanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		2FAD2F662A0FF09D002E648B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2FAD2F682A0FF0B0002E648B /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		2FAD2F6A2A0FF16D002E648B /* Viewport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewport.swift; sourceTree = "<group>"; };
-		2FEE711E2B8A175A00CDB11D /* RoutePlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePlanner.swift; sourceTree = "<group>"; };
 		DEB4D5FDC6A64278E862BA26 /* Pods-CurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
 		F5CFE06EE590FBA2F35E099D /* Pods-CurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,7 +164,6 @@
 				2FAD2F5D2A0FF02E002E648B /* LocationService.swift */,
 				2F041C6F2B86A96500FE13F4 /* ImageLoader.swift */,
 				2F041C902B87A45900FE13F4 /* OpenAIController.swift */,
-				2FEE711E2B8A175A00CDB11D /* RoutePlanner.swift */,
 				2F44FD702B8CEFDC007CFCAB /* KMeans.swift */,
 			);
 			path = Services;
@@ -329,7 +326,6 @@
 				2F69C12729EAAFD600958F46 /* MapLocal.swift in Sources */,
 				2F08BA522A18C409008D4596 /* Color.swift in Sources */,
 				2F041C682B8695FD00FE13F4 /* ContentView.swift in Sources */,
-				2FEE711F2B8A175A00CDB11D /* RoutePlanner.swift in Sources */,
 				2F041C912B87A45900FE13F4 /* OpenAIController.swift in Sources */,
 				2F041C6C2B869DB700FE13F4 /* AnnotationDetailView.swift in Sources */,
 				2FAD2F692A0FF0B0002E648B /* APIResponse.swift in Sources */,

@@ -58,13 +58,8 @@ struct MapLocal: View {
                 createRoutes: {
                     vm.isCreateRouteViewPresented = false
                     let locations: [Location] = vm.places.map { $0.location }
-                    let planner = RoutePlanner(
-                        locations: locations,
-                        startingPoint: Location(lat: vm.initialLocation.coordinate.latitude, lng: vm.initialLocation.coordinate.longitude), 
-                        dailyLimitKm: vm.selectDistance
-                    )
-//                    let plannedLocations = planner.planRoute(for: 3)
-                    let plannedLocationsFind = planner.clusterLocations(days: vm.selectedNumberOfDays)
+                    let kmean = KMeans(locations: locations)
+                    let plannedLocationsFind = kmean.findBestClustering(intoGroups: vm.selectedNumberOfDays, iterations: 200)
                                               
                     vm.plannedLocations = plannedLocationsFind
                     print("Received a plan")
