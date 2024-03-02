@@ -64,8 +64,7 @@ struct MapLocal: View {
                         dailyLimitKm: vm.selectDistance
                     )
 //                    let plannedLocations = planner.planRoute(for: 3)
-                    let plannedLocationsFind = planner.clusterLocations(
-                        startingLocation: Location(lat: vm.initialLocation.coordinate.latitude, lng: vm.initialLocation.coordinate.longitude))
+                    let plannedLocationsFind = planner.clusterLocations(days: vm.selectedNumberOfDays)
                                               
                     vm.plannedLocations = plannedLocationsFind
                     print("Received a plan")

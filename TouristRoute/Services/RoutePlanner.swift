@@ -18,7 +18,7 @@ class RoutePlanner {
         self.locations = locations
         self.startingPoint = startingPoint
         self.dailyLimitKm = dailyLimitKm
-        self.kmean = KMeans(locations: locations, startingPoint: startingPoint, dailyLimitKm: dailyLimitKm)
+        self.kmean = KMeans(locations: locations)
     }
 
     func planRoute(for days: Int) -> [[Location]] {
@@ -55,8 +55,8 @@ class RoutePlanner {
         return routes
     }
     
-    func clusterLocations(startingLocation: Location) -> [[Location]] {
-        return kmean.clusterLocations(intoGroups: 3)
+    func clusterLocations(days: Int) -> [[Location]] {
+        return kmean.findBestClustering(intoGroups: days, iterations: 100)
     }
     
     private func findNextLocation(currentLocation: Location, remainingLocations: [Location], dailyDistance: Double) -> Location? {
