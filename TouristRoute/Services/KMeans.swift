@@ -14,13 +14,17 @@ class KMeans {
     init(locations: [Location]) {
         self.locations = locations
     }
-    
-    func findBestClustering(intoGroups k: Int, iterations: Int = 100) -> [[Location]] {
+            
+    func findBestClustering(intoGroups k: Int, distancePerDay: Double, iterations: Int = 100) -> [[Location]] {
         var bestClusters: [[Location]] = []
         var bestDistancesInClusters: [Double] = []
         
         for _ in 0..<iterations {
             let (clusters, newDistancesInClusters) = clusterLocations(intoGroups: k)
+
+            if (newDistancesInClusters.contains { $0 > (distancePerDay * 1000) }) {
+                continue
+            }
             
             if (bestDistancesInClusters.count == 0) {
                 bestDistancesInClusters = newDistancesInClusters
@@ -32,6 +36,19 @@ class KMeans {
                 compareAndUpdateBestClusters(currentClusters: clusters, currentScore: newDistancesInClusters, bestClusters: &bestClusters, bestScore: &bestDistancesInClusters)
             }
         }
+        
+        if bestDistancesInClusters.isEmpty {
+            let thresholds = [2.0, 1.9, 1.8, 1.7]
+            for threshold in thresholds {
+                let newLocations = removeOutliersBasedOnNearestNeighborZScore(threshold: threshold)
+                if newLocations.count != locations.count {
+                    locations = newLocations
+                    // Recursively call findBestClustering with updated locations
+                    return findBestClustering(intoGroups: k, distancePerDay: distancePerDay, iterations: iterations)
+                }
+            }
+        }
+
         print(bestDistancesInClusters)
 
         return (bestClusters)
@@ -83,8 +100,6 @@ class KMeans {
         // Determine if the first array has a smaller maximum difference
         return firstArrayMaxDifference < secondArrayMaxDifference
     }
-
-
     
     private func clusterLocations(intoGroups k: Int) -> ([[Location]], [Double]) {
         guard !locations.isEmpty, k > 0 else { return ([], [0.0]) }
@@ -174,6 +189,26 @@ class KMeans {
         let path = pathIndices.map { cluster[$0] }
         
         return (totalDistance, path)
+    }
+    
+    private func nearestNeighborDistance(for location: Location) -> Double {
+        let distances = locations.filter { $0 != location }.map { distanceBetween(location, $0) }
+        guard let minDistance = distances.min() else { return Double.greatestFiniteMagnitude }
+        return minDistance
+    }
+    
+    func removeOutliersBasedOnNearestNeighborZScore(threshold: Double) -> [Location] {
+        // Calculate distances of locations to their nearest neighbor
+        let distances = locations.map { location in
+            nearestNeighborDistance(for: location)
+        }
+        
+        let zScores = distances.zScores()
+        
+        // Filter locations based on Z-scores of nearest neighbor distances
+        return zip(locations, zScores).filter { _, zScore in
+            abs(zScore) <= threshold
+        }.map { $0.0 }
     }
 }
 

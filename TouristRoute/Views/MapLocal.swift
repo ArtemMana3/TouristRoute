@@ -61,7 +61,7 @@ struct MapLocal: View {
                     let locations: [Location] = vm.places.map { $0.location }
                     
                     let kmean = KMeans(locations: locations)
-                    vm.plannedLocations = kmean.findBestClustering(intoGroups: vm.selectedNumberOfDays, iterations: 200)
+                    vm.plannedLocations = kmean.findBestClustering(intoGroups: vm.selectedNumberOfDays, distancePerDay: vm.selectDistance, iterations: 500)
                                               
                     print("Received a plan")
                     vm.createRoutes(numberOfDay: 0)

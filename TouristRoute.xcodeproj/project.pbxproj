@@ -32,6 +32,7 @@
 		2FAD2F672A0FF09D002E648B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F662A0FF09D002E648B /* Location.swift */; };
 		2FAD2F692A0FF0B0002E648B /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F682A0FF0B0002E648B /* APIResponse.swift */; };
 		2FAD2F6B2A0FF16D002E648B /* Viewport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD2F6A2A0FF16D002E648B /* Viewport.swift */; };
+		2FF687CF2B94963900923049 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF687CE2B94963900923049 /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		2FAD2F662A0FF09D002E648B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2FAD2F682A0FF0B0002E648B /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		2FAD2F6A2A0FF16D002E648B /* Viewport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewport.swift; sourceTree = "<group>"; };
+		2FF687CE2B94963900923049 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		DEB4D5FDC6A64278E862BA26 /* Pods-CurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
 		F5CFE06EE590FBA2F35E099D /* Pods-CurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			children = (
 				2F08BA512A18C409008D4596 /* Color.swift */,
 				2F041C922B87D57A00FE13F4 /* String.swift */,
+				2FF687CE2B94963900923049 /* Array.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				2F041C722B86AE0300FE13F4 /* Photo.swift in Sources */,
 				2F40A9AF2A239A6C006E8CC4 /* MapLocal_ViewModel.swift in Sources */,
 				2FAD2F6B2A0FF16D002E648B /* Viewport.swift in Sources */,
+				2FF687CF2B94963900923049 /* Array.swift in Sources */,
 				2F041C6A2B86984500FE13F4 /* Place.swift in Sources */,
 				2F88A0DB2920F60B0044E913 /* ExchangeHistory.xcdatamodeld in Sources */,
 				2FAD2F632A0FF081002E648B /* PlaceResult.swift in Sources */,
